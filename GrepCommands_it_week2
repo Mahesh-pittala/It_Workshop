@@ -1,0 +1,319 @@
+    ### it_ Week-2###
+    
+    
+------Grep commands in Unix-------
+
+
+mahesh@mahi:~/Documents/it$ cat>geekfile.txt
+mahesh is the good boy,He can do Everything.        
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh@mahi:~/Documents/it$ 
+
+mahesh@mahi:~/Documents/it$ sed 's/He/mahi/' geekfile.txt
+mahesh is the good boy,mahi can do Everything.
+mahi face any problem in the hardest situation.
+mahi stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh@mahi:~/Documents/it$ 
+
+mahesh@mahi:~/Documents/it$ sed 's/mahesh/MAHESH/1' geekfile.txt
+MAHESH is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it
+$ sed 's/mahi/MAHI/' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed 's/he/MAHI/3' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed 's/He/MAHI/3' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed 's/mahesh/MAHI/1' geekfile.txt
+MAHI is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed 's/HE/MAHI/2' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed 's/HE/he/2' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+mahesh@mahi:~/Documents/it$ 
+
+mahesh@mahi:~/Documents/it$ sed '2s/He/he/2g' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed '2d' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+@mahi:~/Documents/it$ sed '/core/d' geekfile.txt
+mahesh is the good boy,He can do Everything.
+He face any problem in the hardest situation.
+He stands strongly when the situation arives.
+It is the best motivation to his life.
+It gives the experience to him.mahesh
+
+mahesh@mahi:~/Documents/it$ cat>names.txt
+Mahesh
+ABHI
+sanjay
+aslam
+vasanth
+1
+5
+9
+3
+2
+7
+5
+8
+mahesh@mahi:~/Documents/it$ 
+mahesh@mahi:~/Documents/it$ sort file.txt
+sort: cannot read: file.txt: No such file or directory
+mahesh@mahi:~/Documents/it$ sort names.txt
+1
+2
+3
+5
+5
+7
+8
+9
+ABHI
+aslam
+Mahesh
+sanjay
+vasanth
+mahesh@mahi:~/Documents/it$ sort -u names.txt
+1
+2
+3
+5
+7
+8
+9
+ABHI
+aslam
+Mahesh
+sanjay
+vasanth
+mahesh@mahi:~/Documents/it$ sort -nr names.txt
+9
+8
+7
+5
+5
+3
+2
+1
+vasanth
+sanjay
+Mahesh
+aslam
+ABHI
+mahesh@mahi:~/Documents/it$ sort -rr names.txt
+vasanth
+sanjay
+Mahesh
+aslam
+ABHI
+9
+8
+7
+5
+5
+3
+2
+1
+mahesh@mahi:~/Documents/it$ sort -o names.txt
+mahesh@mahi:~/Documents/it$ cat names.txt
+mahesh@mahi:~/Documents/it$ sort names.txt
+mahesh@mahi:~/Documents/it$ cat>names.txt
+8
+7
+5
+5
+3
+2
+1
+vasanth
+sanjay
+Mahesh
+aslam
+ABHI
+mahesh@mahi:~/Documents/it$ cat>names.txt
+mahesh@mahi:~/Documents/it$ sort names.txt
+mahesh@mahi:~/Documents/it$ cat>names.txt
+8
+7
+5
+5
+3
+2
+1
+vasanth
+sanjay
+Mahesh
+aslam
+ABHI
+mahesh@mahi:~/Documents/it$ sort n names.txt
+sort: cannot read: n: No such file or directory
+mahesh@mahi:~/Documents/it$ sort -n names.txt
+ABHI
+aslam
+Mahesh
+sanjay
+vasanth
+1
+2
+3
+5
+5
+7
+8
+mahesh@mahi:~/Documents/it$ sort -k names.txt
+sort: invalid number at field start: invalid count at start of ‘names.txt’
+mahesh@mahi:~/Documents/it$ sort -c names.txt
+sort: names.txt:2: disorder: 7
+mahesh@mahi:~/Documents/it$ sort -u names.txt
+1
+2
+3
+5
+7
+8
+ABHI
+aslam
+Mahesh
+sanjay
+vasanth
+mahesh@mahi:~/Documents/it$ sort -M names.txt
+1
+2
+3
+5
+5
+7
+8
+ABHI
+aslam
+Mahesh
+sanjay
+vasanth
+mahesh@mahi:~/Documents/it$ cat>Months.txt
+jan
+feb    
+agu
+july
+dec
+march
+aprilmahesh@mahi:~/Documents/it$ sort -M names.txt
+1
+2
+3
+5
+5
+7
+8
+ABHI
+aslam
+Mahesh
+sanjay
+vasanth
+mahesh@mahi:~/Documents/it$ sort -M months.txt
+sort: cannot read: months.txt: No such file or directory
+mahesh@mahi:~/Documents/it$ sort -M Months.txt
+agu
+jan
+feb
+march
+april
+july
+dec
+mahesh@mahi:~/Documents/it$ sort M Months.txt
+sort: cannot read: M: No such file or directory
+mahesh@mahi:~/Documents/it$ sort -r Months.txt
+march
+july
+jan
+feb
+dec
+april
+agu
+mahesh@mahi:~/Documents/it$ cat>file2.txt
+mahesh ubuntu id 1200     
+satya  linux  id 1300
+gopi   window id 1400
+siddu  os     id 1500mahesh@mahi:~/Documents/it$ awk '{print $1,$2,$4}' file2.txt
+mahesh ubuntu 1200
+satya linux 1300
+gopi window 1400
+siddu os 1500
+mahesh@mahi:~/Documents/it$ awk '{print NR,$0}' file2.txt
+1 mahesh ubuntu id 1200
+2 satya  linux  id 1300
+3 gopi   window id 1400
+4 siddu  os     id 1500
+mahesh@mahi:~/Documents/it$ awk '{print NR,$2}' file2.txt
+1 ubuntu
+2 linux
+3 window
+4 os
+mahesh@mahi:~/Documents/it$ awk '{print $2}' file2.txt
+ubuntu
+linux
+window
+os
+mahesh@mahi:~/Documents/it$ awk '{print NR}' file2.txt
+1
+2
+3
+4
+mahesh@mahi:~/Documents/it$ awk free -M
+awk: cannot open -M (No such file or directory)
+mahesh@mahi:~/Documents/it$ awk '{print $2}' file2.txt
+ubuntu
+linux
+window
+os
+
+mahesh@mahi:~/Documents/it$ awk 'NR==2{print NR}' file2.txt
+2
+
